@@ -20,6 +20,7 @@ To run the project locally:
 
 ## Clone the repository:
 git clone https://github.com/yourusername/weekly-workout-plan.git](https://github.com/imguddut/Weekly-Workout-Plan.git
+
 Navigate to the project directory:
 
 cd weekly-workout-plan
