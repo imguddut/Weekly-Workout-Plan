@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Reminder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #6200ea;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        main {
+            margin: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .day {
+            margin-bottom: 20px;
+        }
+
+        .day h2 {
+            color: #6200ea;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        li:hover {
+            transform: scale(1.05);
+            background: #e0e0ff;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #6200ea;
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .exercise-video {
+            display: none;
+            margin-top: 10px;
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Weekly Workout Reminder</h1>
+    </header>
+    <main>
+        <div class="day animated">
+            <h2>Day 1: Chest & Triceps</h2>
+            <ul>
+                <li onclick="showVideo('benchPress')">Flat Bench Press - 4 sets x 8-10 reps</li>
+                <video id="benchPress" class="exercise-video" controls autoplay loop>
+                    <source src="/src/Flat Bench Press.mp4" type="video/mp4">
+                    <source src="/src/Flat Bench Press.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('inclineDumbbellPress')">Incline Dumbbell Press - 3 sets x 10-12 reps</li>
+                <video id="inclineDumbbellPress" class="exercise-video" controls autoplay loop>
+                    <source src="/src/Incline Dumbbell Press.mp4" type="video/mp4">
+                    <source src="/src/Incline Dumbbell Press.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('chestFly')">Chest Fly (Machine or Dumbbell) - 3 sets x 12-15 reps</li>
+                <video id="chestFly" class="exercise-video" controls autoplay loop>
+                    <source src="https://app.fitnessai.com/exercises/05961201-Lever-Seated-Fly-Chest.mp4"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('pushUps')">Push-Ups - 3 sets to failure</li>
+                <video id="pushUps" class="exercise-video" controls autoplay loop>
+                    <source src="/src/pushUps.mp4" type="video/mp4">
+                    <source src="/src/pushUps.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('tricepDips')">Tricep Dips (Parallel Bars) - 3 sets x 12-15 reps</li>
+                <video id="tricepDips" class="exercise-video" controls autoplay loop >
+                    <source
+                        src="https://www.shutterstock.com/shutterstock/videos/3597017789/preview/stock-footage-fitness-woman-and-chair-in-home-for-workout-exercise-or-core-strength-training-for-wellness-girl.webm"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('overheadTricepExtension')">Overhead Tricep Extension (Dumbbell) - 3 sets x 12-15
+                    reps</li>
+                <video id="overheadTricepExtension" class="exercise-video" controls autoplay loop >
+                    <source src="/src/Overhead Tricep Extension.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </ul>
+        </div>
+
+        <div class="day animated">
+            <h2>Day 2: Back & Biceps</h2>
+            <ul>
+                <li onclick="showVideo('pullUps')">Pull-Ups (Assisted if needed) - 4 sets x 8-10 reps</li>
+                <video id="pullUps" class="exercise-video"  controls autoplay loop>
+                    <source src="/src/Pull-Ups.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('latPulldown')">Lat Pulldown - 3 sets x 10-12 reps</li>
+                <video id="latPulldown" class="exercise-video" controls autoplay loop>
+                    <source src="/src/latPulldown.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('seatedRow')">Seated Row - 3 sets x 12-15 reps</li>
+                <video id="seatedRow" class="exercise-video" controls autoplay loop>
+                    <source src="src/seatedRow.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('barbellCurl')">Barbell Bicep Curl - 3 sets x 10-12 reps</li>
+                <video id="barbellCurl" class="exercise-video" controls autoplay loop>
+                    <source src="/src/barbellCurl.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('hammerCurl')">Hammer Curls - 3 sets x 12-15 reps</li>
+                <video id="hammerCurl" class="exercise-video" controls autoplay loop>
+                    <source src="/src/hammerCurl.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('preacherCurl')">Preacher Curl - 3 sets x 12-15 reps</li>
+                <video id="preacherCurl" class="exercise-video" controls autoplay loop>
+                    <source src="/src/preacherCurl.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </ul>
+        </div>
+
+        <div class="day animated">
+            <h2>Day 3: Shoulders & Abs</h2>
+            <ul>
+                <li onclick="showVideo('overheadPress')">Overhead Press - 4 sets x 8-10 reps</li>
+                <video id="overheadPress" class="exercise-video" controls autoplay loop>
+                    <source src="/src/Overhead Press.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('lateralRaises')">Lateral Raises - 3 sets x 12-15 reps</li>
+                <video id="lateralRaises" class="exercise-video" controls autoplay loop>
+                    <source src="/src/Lateral Raises.webm" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('frontRaises')">Front Raises - 3 sets x 12-15 reps</li>
+                <video id="frontRaises" class="exercise-video" controls autoplay loop>
+                    <source src="/src/frontRaises.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('reversePecDeck')">Reverse Pec Deck - 3 sets x 12-15 reps</li>
+                <video id="reversePecDeck" class="exercise-video" controls autoplay loop>
+                    <source src="src/reversePecDeck.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('shrugs')">Shrugs - 3 sets x 12-15 reps</li>
+                <video id="shrugs" class="exercise-video" controls autoplay loop>
+                    <source src="/src/Shrugs.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('plank')">Plank Hold - 3 sets x 45-60 seconds</li>
+                <video id="plank" class="exercise-video" controls autoplay loop>
+                    <source src="/src/PlankHold.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </ul>
+        </div>
+
+        <div class="day animated">
+            <h2>Day 4: Rest & Recovery</h2>
+            <p>Take this day to rest and recover. Focus on stretching, foam rolling, and preparing for next week's
+                workouts!</p>
+        </div>
+
+        <div class="day animated">
+            <h2>Day 5: Chest, Shoulders & Triceps</h2>
+            <ul>
+                <li onclick="showVideo('inclinebenchpress')">Incline Bench Press - 4 sets x 8-10 reps</li>
+                <video id="inclinebenchpress" class="exercise-video" controls autoplay loop>
+                    <source src="/src/Incline Bench Press.webm" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('chinUps')">Flat Dumbbell Fly - 3 sets x 12-15 reps</li>
+                <video id="chinUps" class="exercise-video" controls autoplay loop>
+                    <source src="src/Flat Dumbbell Fly.webm" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('barbellRows')">Arnold Press - 3 sets x 10-12 reps</li>
+                <video id="barbellRows" class="exercise-video" controls autoplay loop>
+                    <source src="src/Arnold Press.webm" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('bicepCurls')">Dumbbell Lateral Raises - 3 sets x 12-15 reps</li>
+                <video id="bicepCurls" class="exercise-video" controls autoplay loop>
+                    <source src="src/Lateral Raises.webm" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('triceppushdown')">Cable Tricep Pushdown - 3 sets x 12-15 reps</li>
+                <video id="triceppushdown" class="exercise-video" controls autoplay loop>
+                    <source src="src/Cable Tricep Pushdown.webm" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </ul>
+        </div>
+
+        
+        <div class="day animated">
+            <h2>Day 6: Legs</h2>
+            <ul>
+                <li onclick="showVideo('squats')">Squats - 4 sets x 8-10 reps</li>
+                <video id="squats" class="exercise-video" controls autoplay loop>
+                    <source src="src/Squats.webm" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('legPress')">Leg Press - 3 sets x 10-12 reps</li>
+                <video id="legPress" class="exercise-video" controls autoplay loop>
+                    <source src="src/legPress.webm" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('lunges')">Lunges - 3 sets x 12-15 reps</li>
+                <video id="lunges" class="exercise-video" controls autoplay loop>
+                    <source src="src/lunges.webm" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('legCurls')">Leg Curls - 3 sets x 12-15 reps</li>
+                <video id="legCurls" class="exercise-video" controls autoplay loop>
+                    <source src="src/legCurls.webm" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <li onclick="showVideo('calfRaises')">Calf Raises - 4 sets x 15-20 reps</li>
+                <video id="calfRaises" class="exercise-video" controls autoplay loop>
+                    <source src="src/calfRaises.webm" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </ul>
+        </div>
+
+        <div class="day animated">
+            <h2>Day 7: Rest & Recovery</h2>
+            <p>Take this day to rest and recover. Focus on stretching, foam rolling, and preparing for next week's
+                workouts!</p>
+        </div>
+
+    </main>
+    <footer>
+        <p>&copy; 2025 Fitness Inc. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showVideo(exerciseId) {
+            const video = document.getElementById(exerciseId);
+            if (video.style.display === "none" || video.style.display === "") {
+                video.style.display = "block";
+            } else {
+                video.style.display = "none";
+            }
+        }
+
+        function sendReminder() {
+            const day = new Date().getDay();
+            const plans = {
+                0: "Rest day. Focus on stretching.",
+                1: "Chest & Triceps: Bench Press, Dumbbell Press, Push-Ups, Tricep Dips.",
+                2: "Back & Biceps: Pull-Ups, Lat Pulldown, Barbell Curl, Preacher Curl.",
+                3: "Shoulders & Abs: Overhead Press, Lateral Raises, Plank.",
+                4: "Legs: Squats, Leg Press, Lunges, Calf Raises.",
+                5: "Chest & Triceps: Flat Bench Press, Incline Dumbbell Press, Diamond Push-Ups.",
+                6: "Back & Biceps: Deadlifts, Chin-Ups, Bicep Curls.",
+            };
+            const plan = plans[day];
+
+            if (plan) {
+                alert(`Today's Workout:\n\n${plan}`);
+            } else {
+                alert("It's your rest day! Focus on recovery.");
+            }
+        }
+
+        // Schedule the reminder (runs at 4:30 PM daily)
+        function scheduleReminder() {
+            const now = new Date();
+            const targetTime = new Date();
+            targetTime.setHours(16, 30, 0, 0); // Set target time to 4:30 PM
+
+            if (now > targetTime) {
+                targetTime.setDate(targetTime.getDate() + 1); // Set to the next day if time has passed
+            }
+
+            const delay = targetTime - now;
+
+            setTimeout(() => {
+                sendReminder();
+                setInterval(sendReminder, 24 * 60 * 60 * 1000); // Repeat daily
+            }, delay);
+        }
+
+        // Start the reminder
+        scheduleReminder();
+    </script>
+</body>
+
+</html>
